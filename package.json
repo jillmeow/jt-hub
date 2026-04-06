@@ -1,0 +1,43 @@
+{
+  "name": "jt-hub",
+  "version": "1.0.0",
+  "description": "Everything Justin Timberlake, in one slick web app.",
+  "keywords": [
+    "webpack",
+    "javascript",
+    "node",
+    "justintimberlake",
+    "music"
+  ],
+  "homepage": "https://github.com/jillmeow/jt-hub#readme",
+  "bugs": {
+    "url": "https://github.com/jillmeow/jt-hub/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jillmeow/jt-hub.git"
+  },
+  "license": "MIT",
+  "author": "Jill van der Veen",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-react": "^7.28.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.29.0",
+    "babel-loader": "^10.1.1",
+    "jquery": "^4.0.0",
+    "lodash": "^4.18.1"
+  }
+}
