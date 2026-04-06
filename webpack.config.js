@@ -6,11 +6,20 @@ const __dirname = path.dirname(__filename);
 
 export default {
     mode: "development",
-    entry: "./src/index.js",
+    entry: {
+        about: "./src/about.js",
+        gallery: "./src/gallery.js",
+        edits: "./src/edits.js",
+    },
     output: {
-        filename: "main.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist"),
         publicPath: "/",
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
     },
     devServer: {
         static: {
