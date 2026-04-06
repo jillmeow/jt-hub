@@ -10,13 +10,18 @@ export default {
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
+        publicPath: "/",
     },
     devServer: {
         static: {
             directory: path.resolve(__dirname, "dist"),
         },
+        devMiddleware: {
+            writeToDisk: true,
+        },
         port: 9000,
-        open: true
+        open: true,
+        hot: true,
     },
     module: {
         rules: [
@@ -32,17 +37,21 @@ export default {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            url: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
-                use: {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8192,
-                        name: '[name].[ext]',
-                    }
-
+                type: 'asset/resource',
+                generator: {
+                    filename: '[name][ext]'  // keeps original filename
                 }
             }
         ]
