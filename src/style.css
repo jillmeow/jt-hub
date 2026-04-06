@@ -2,3 +2,9 @@ h1 {
     font-family: Arial;
     color: darkgoldenrod;
 }
+
+#image {
+    background: url('justintimberlake.jpg');
+    height: 500px;
+    width: 500px;
+}

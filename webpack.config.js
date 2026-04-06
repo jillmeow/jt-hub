@@ -5,10 +5,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
+    mode: "development",
     entry: "./src/index.js",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
+    },
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, "dist"),
+        },
+        port: 9000,
+        open: true
     },
     module: {
         rules: [
@@ -25,6 +33,17 @@ export default {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: '[name].[ext]',
+                    }
+
+                }
             }
         ]
     }
